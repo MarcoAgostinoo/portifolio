@@ -1,0 +1,149 @@
+.main {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+.positionleft {
+  margin-top: 0px;
+  margin-right: 100px;
+}
+.presentation {
+  height: 100%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+
+.profileImage {
+  width: 90%;
+  height: 100%;
+  background-size: cover;
+  background-image: url(/sinistro.webp);  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30%;
+  background-position: center center;
+}
+
+}
+.presentation h3 {
+  color: #495057;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.presentation h1 {
+  color: #495057;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.actionButtons {
+  display: flex;
+  margin: 10px;
+  margin-left: -20px;
+}
+.actionButtonList {
+  margin: 10px;
+  padding: 5px;
+  border-radius: 20px;
+  color: white;
+}
+
+.contactButton {
+  padding: 10px;
+  background-color: #ff7a57;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.contactButton:hover {
+  background-color: #f74519;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.downloadButton {
+  padding: 10px;
+  background-color: #343a40;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.actionButton:hover {
+  background-color: #ff7a57;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.socialMedia {
+  display: flex;
+  margin-top: -20px;
+}
+
+.socialMediaList {
+  display: flex;
+}
+
+.socialButton {
+  border-radius: 50%;
+  border: 3px solid #ff7a57;
+  width: 45px;
+  height: 45px;
+  margin: 8px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100px;
+  margin-top: -100px;
+}
+
+.divider {
+  border: 1px solid #524f4f52;
+  width: 100%;
+}
+
+.textContainer {
+  overflow: hidden;
+  color: #495057;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 70px;
+  border: 2px solid #524f4f52;
+  font-size: 30px;
+  position: relative;
+  background-color: #ffffff;
+  text-align: center;
+  height: 100px;
+  top: 50px; /* Ajuste o valor para controlar a distância do texto da linha */
+}
+
+.statSubtitle {
+  font-size: 15px;
+}
+
+.statsContainer {
+  width: 99%;
+  display: flex;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 30px 5px 30px;
+}
+
+

@@ -1,0 +1,37 @@
+.profile {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 150px;
+
+}
+
+.imgProfile {
+    width: 30%;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    padding-top: 90px;
+    margin: 50px;
+    padding-left: 200px;
+}
+
+.textProfile {
+    width: 60%;
+    padding-right: 100px;
+    padding-top: 200px;
+}
+.buttonProfile {
+    margin-top: 50px;
+    background-color: #ff7a57ff;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: large;
+    font-weight: bolder;
+    color: white;
+}
+
+.buttonProfile:hover {
+    background-color: #27be27;
+    cursor: pointer;
+}
