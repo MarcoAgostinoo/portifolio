@@ -1,19 +1,28 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Estiloso() {
 
+    const [data, setData] = useState(null);
 
-  const [number, setNumero] = useState(0);
-
-  function incrementar() {
-    setNumero(number + 1);
+    useEffect(() => {
+      const fetchData = async () => {
+        const res = await fetch('/pages/api');
+        const json = await res.json();
+        setData(json);
+      };
+  
+      fetchData();
+    }, []);
+  
+    if (!data) {
+      return <div>Loading...</div>;
+    }
+  
+    return (
+      <div>
+        <h1>Hello from API:</h1>
+        <p>{data.hello}</p>
+      </div>
+    );
   }
-
-  return (
-    <main>
-      <button onClick={incrementar}>incrementar</button>
-      <div>{number}</div>
-    </main>
-  );
-}
