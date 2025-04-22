@@ -1,5 +1,6 @@
 "use client";
 
+import { DarkThemeToggle } from "flowbite-react";
 import { useState } from "react";
 
 export default function NavBar() {
@@ -42,6 +43,7 @@ export default function NavBar() {
             <li className="hover:text-blue-300 transition-colors cursor-pointer mb-3">Portfolio</li>
             <li className="hover:text-blue-300 transition-colors cursor-pointer mb-3">Blogs</li>
             <li className="hover:text-blue-300 transition-colors cursor-pointer">Contact Me</li>
+            <li className="hover:text-blue-300 transition-colors cursor-pointer"> <DarkThemeToggle /> </li>
           </ul>
         )}
       </nav>

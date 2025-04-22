@@ -1,23 +1,6 @@
 @import "tailwindcss";
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1A202C; /* Um tom de azul escuro */
-    --foreground: #E2E8F0; /* Um tom de cinza claro para o texto, se necessário */
-  }
-
-  body {
-    background: linear-gradient(to bottom, #1A202C, #2D3748); /* Degradê do azul mais escuro para um tom um pouco mais claro */
-    color: var(--foreground); /* Define a cor do texto padrão para o tema escuro */
-  }
-}
-
-body {
-  /* Estilos para o tema claro (padrão) */
-  background-color: #ffffff;
-  color: #333;
-}
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../../.flowbite-react/class-list.json";  
 
 body {
   background: var(--background);
