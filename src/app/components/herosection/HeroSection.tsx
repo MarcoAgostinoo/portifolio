@@ -4,7 +4,7 @@ export default function HeroSection({
   name = "Marco A.D.A Melo",
   subtitle = "I Am Passionate Dev",
   description = "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores.",
-  imageSrc = "/img1.jepg",
+  imageSrc = "/img1.jpeg",
   cvLink = "/cv.pdf",
 }) {
   return (
