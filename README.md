@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Website de Portfólio Pessoal
 
-## Getting Started
+Um site de portfólio moderno e responsivo, desenvolvido com Next.js, TypeScript e Tailwind CSS.
 
-First, run the development server:
+![Prévia do Portfólio](public/preview.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Funcionalidades
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Design totalmente responsivo para todos os dispositivos
+- Interface moderna com Tailwind CSS e componentes Flowbite React
+- Seções interativas, incluindo:
+  - Seção hero com introdução pessoal
+  - Linha do tempo de habilidades e formação
+  - Serviços oferecidos
+  - Galeria de projetos
+  - Formulário de contato
+- Avaliações de habilidades animadas
+- Suporte ao modo escuro
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tecnologias Utilizadas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework:** [Next.js 15](https://nextjs.org/)
+- **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
+- **Estilização:** [Tailwind CSS 4](https://tailwindcss.com/)
+- **Componentes UI:** [Flowbite React](https://flowbite-react.com/)
+- **Ícones:** [React Icons](https://react-icons.github.io/react-icons/)
+- **Implantação:** [Vercel](https://vercel.com/)
 
-## Learn More
+## 🏁 Começando
 
-To learn more about Next.js, take a look at the following resources:
+### Pré-requisitos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Node.js 18.17 ou superior
+- npm, yarn, pnpm ou bun
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Instalação
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seuusuario/portfolio.git
+   cd portfolio
+   ```
