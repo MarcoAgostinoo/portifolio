@@ -1,27 +1,27 @@
 @import "tailwindcss";
 @plugin "flowbite-react/plugin/tailwindcss";
-@source "../../.flowbite-react/class-list.json";  
+@source "../../.flowbite-react/class-list.json";
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* cores claras */
+  --foreground: #000000;
+  --background-start: #FFFFFF;
+  --background-end: #FFFFFF;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    /* cores escuras */
+    --foreground: #FFFFFF;
+    --background-start: #000000;
+    --background-end: #000000;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--foreground);
+  /* primeiro plano: degradê transparente→fundo; segundo plano: cor sólida de base */
+  background: 
+    linear-gradient(to bottom, transparent, var(--background-end)),
+    var(--background-start);
 }

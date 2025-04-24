@@ -70,8 +70,8 @@ export default function NavBar() {
             <Image
               src="/img5.webp"
               alt="Avatar"
-              width={96}
-              height={96}
+              width={120}
+              height={120}
               className="object-cover"
             />
           </div>

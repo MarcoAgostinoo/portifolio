@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { TabsHero } from "../tabs/TabsHero";
 
 export default function HeroSection({
   name = "Marco A.D.A Melo",
@@ -10,7 +11,7 @@ export default function HeroSection({
   return (
     <section
       id="hero"
-      className="relative bg-white overflow-hidden mt-14 lg:mt-0">
+      className="relative h-screen bg-white overflow-hidden mt-14 lg:mt-0">
       {/* Bolha decorativa */}
       <div className="absolute -top-10 lg:-top-28 -right-20 w-40 h-40 md:w-[600px] md:h-[600px] bg-green-300 rounded-full" />
 
@@ -48,6 +49,9 @@ export default function HeroSection({
           </div>
         </div>
       </div>
+      <div className="w-full sm:w-auto -mt-14">
+            <TabsHero />
+          </div>
     </section>
   );
 }

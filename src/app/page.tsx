@@ -57,7 +57,7 @@ export default function Home() {
           <Skills />
           <div className="mb-10">
             <div>
-              <h2 className="text-2xl font-bold mb-4">Tecnologias que utilizo</h2>
+              <h2 className="text-2xl font-bold mb-4 text-center">Tecnologias que utilizo no dia a dia</h2>
             </div>
             <SplideCarousel
               imageUrls={imageUrls}
