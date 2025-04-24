@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "flowbite-react patch"
+    "postinstall": "flowbite-react build"
   },
   "dependencies": {
     "@splidejs/react-splide": "^0.7.12",
