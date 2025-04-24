@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import Splide from "@splidejs/splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
-import "@splidejs/splide/css";
+import "@splidejs/splide/css/default";
 
 interface SplideCarouselProps {
   imageUrls: string[];
@@ -28,8 +28,8 @@ const SplideCarousel: React.FC<SplideCarouselProps> = ({ imageUrls }) => {
         pauseOnHover: false,
       },
       breakpoints: {
-        640: { perPage: 1 },
-        768: { perPage: 2 },
+        640: { perPage: 3 },
+        768: { perPage: 3 },
         1024: { perPage: 3 },
         1280: { perPage: 4 },
       },

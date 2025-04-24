@@ -17,9 +17,11 @@ const nextConfig: NextConfig = {
     ],
   },
   webpack(config) {
-    // suas customizações de webpack, se houver
+    // Add CSS processing rules if needed
     return config;
   },
+  // Ensure transpilePackages includes all necessary packages
+  transpilePackages: ['@splidejs/splide', '@splidejs/splide-extension-auto-scroll', 'flowbite-react'],
 };
 
 export default withFlowbiteReact(nextConfig);
