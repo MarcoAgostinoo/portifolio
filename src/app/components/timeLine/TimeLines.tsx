@@ -12,7 +12,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 export function TimeLines() {
   return (
-    <Timeline className="w-9/12 ml-24">
+    <Timeline className="w-9/12 ml-16 lg:ml-24">
       {/* January 2022: Project Initialization */}
       <TimelineItem>
         <TimelinePoint />

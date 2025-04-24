@@ -10,9 +10,9 @@ export default function HeroSection({
   return (
     <section
       id="hero"
-      className="relative bg-white overflow-hidden md:h-screen">
+      className="relative bg-white overflow-hidden mt-14 lg:mt-0">
       {/* Bolha decorativa */}
-      <div className="absolute -top-20 -right-20 w-40 h-40 md:w-[600px] md:h-[600px] bg-green-100 rounded-full" />
+      <div className="absolute -top-10 lg:-top-28 -right-20 w-40 h-40 md:w-[600px] md:h-[600px] bg-green-300 rounded-full" />
 
       <div className="relative max-w-6xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center py-12 md:py-20">
         {/* Texto */}
