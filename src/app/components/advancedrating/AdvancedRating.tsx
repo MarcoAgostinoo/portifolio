@@ -17,12 +17,12 @@ export default function AdvancedRating() {
     }
   }, [inView]);
 
-  const ratings = [
-    { label: "5 estrelas", percent: 70 },
-    { label: "4 estrelas", percent: 87 },
-    { label: "3 estrelas", percent: 68 },
-    { label: "2 estrelas", percent: 54 },
-    { label: "1 estrela", percent: 54 },
+  const softSkills = [
+    { label: "Comunicação", percent: 92 },
+    { label: "Empatia e Atendimento", percent: 95 },
+    { label: "Organização", percent: 90 },
+    { label: "Trabalho em Equipe", percent: 88 },
+    { label: "Proatividade", percent: 93 },
   ];
 
   const barVariants = {
@@ -43,16 +43,16 @@ export default function AdvancedRating() {
           <RatingStar />
           <RatingStar />
           <RatingStar />
-          <RatingStar filled={false} />
+          <RatingStar />
           <p className="ml-2 text-sm font-medium text-gray-600">
-            4.95 de 5
+            Excelente desempenho interpessoal
           </p>
         </Rating>
         <p className="mb-4 text-sm font-medium text-gray-600">
-          1.745 avaliações globais
+          Baseado em feedbacks e experiências reais
         </p>
 
-        {ratings.map(({ label, percent }) => (
+        {softSkills.map(({ label, percent }) => (
           <motion.div
             key={label}
             className="flex flex-col sm:flex-row items-start sm:items-center mb-4"
@@ -61,21 +61,21 @@ export default function AdvancedRating() {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <motion.span
-              className="text-sm font-medium text-cyan-700 dark:text-cyan-600 w-full sm:w-1/4 mb-1 sm:mb-0"
+              className="text-sm font-medium text-blue-700 dark:text-blue-400 w-full sm:w-1/4 mb-1 sm:mb-0"
               variants={textVariants}
             >
               {label}
             </motion.span>
             <div className="mx-0 sm:mx-4 h-5 w-full sm:w-2/3 bg-gray-300 dark:bg-gray-800 rounded relative">
               <motion.div
-                className="h-5 bg-yellow-400 rounded"
+                className="h-5 bg-emerald-500 rounded"
                 variants={barVariants}
                 custom={percent}
                 transition={{ duration: 3, ease: "easeOut" }}
               />
             </div>
             <motion.span
-              className="text-sm font-medium text-cyan-700 dark:text-cyan-600 w-full sm:w-1/6 mt-1 sm:mt-0 text-right"
+              className="text-sm font-medium text-blue-700 dark:text-blue-400 w-full sm:w-1/6 mt-1 sm:mt-0 text-right"
               variants={textVariants}
             >
               {percent}%

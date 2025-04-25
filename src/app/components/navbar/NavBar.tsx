@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FaGithub,
@@ -28,14 +28,21 @@ export default function NavBar() {
   };
 
   const menuItems = [
-    { label: "Início", icon: <FiHome size={18} /> },
-    { label: "Sobre", icon: <FiUser size={18} /> },
-    { label: "Currículo", icon: <FiFileText size={18} /> },
-    { label: "Portfólio", icon: <FiGrid size={18} /> },
-    { label: "Serviços", icon: <FiSettings size={18} /> },
-    // { label: "Menu Suspenso", icon: <FiChevronDown size={18} /> },
-    { label: "Contato", icon: <FiMail size={18} /> },
+    { label: "Sobre", icon: <FiHome size={18} />, href: "/#hero" },
+    { label: "Formação", icon: <FiUser size={18} />, href: "/#timeline" },
+    { label: "Habilidades", icon: <FiFileText size={18} />, href: "/#habilidades" },
+    { label: "Serviços", icon: <FiSettings size={18} />, href: "/#services" },
+    { label: "Portfólio", icon: <FiGrid size={18} />, href: "/#portfolio" },
+    { label: "Contato", icon: <FiMail size={18} />, href: "/#contato" },
   ];
+
+  // Função para rolagem suave
+  const handleScroll = useCallback((id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
 
   return (
     <>
@@ -66,12 +73,12 @@ export default function NavBar() {
 
         {/* Perfil (Desktop) */}
         <div className="hidden lg:flex flex-col items-center mt-6">
-          <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-gray-600">
+          <div className="w-36 h-36 rounded-full overflow-hidden border-4 border-gray-600">
             <Image
-              src="/img5.webp"
+              src="/imgnav.png"
               alt="Avatar"
-              width={120}
-              height={120}
+              width={240}
+              height={240}
               className="object-cover"
             />
           </div>
@@ -112,17 +119,29 @@ export default function NavBar() {
 
         {/* Menu (Desktop) */}
         <ul className="hidden lg:flex lg:flex-col lg:space-y-4 lg:mt-8">
-          {menuItems.map(({ label, icon }) => (
-            <motion.li
-              key={label}
-              whileHover={{ x: 5 }}
-              className="flex items-center space-x-2 font-sans text-lg font-medium tracking-wide cursor-pointer hover:text-blue-400 transition-colors">
-              {icon}
-              <span>{label}</span>
-            </motion.li>
-          ))}
+          {menuItems.map(({ label, icon, href }) => {
+            const id = href.split("#")[1]; // Extrai o id do href
+            return (
+              <motion.li
+                key={label}
+                whileHover={{ x: 5 }}
+                className="flex items-center space-x-2 font-sans text-lg font-medium tracking-wide cursor-pointer hover:text-blue-400 transition-colors">
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleScroll(id);
+                  }}
+                  className="flex items-center space-x-2">
+                  {icon}
+                  <span>{label}</span>
+                </a>
+              </motion.li>
+            );
+          })}
         </ul>
       </nav>
+
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
@@ -132,14 +151,24 @@ export default function NavBar() {
             exit="closed"
             variants={menuVariants}
             className="fixed top-[60px] left-0 right-0 bg-gray-800 text-white p-4 shadow-lg z-40 lg:hidden">
-            {menuItems.map(({ label }) => (
-              <li
-                key={label}
-                className="mb-4 flex items-center space-x-2 font-sans text-base font-medium cursor-pointer hover:text-blue-400 transition-colors">
-                {/* no ícone para não poluir a versão mobile */}
-                <span>{label}</span>
-              </li>
-            ))}
+            {menuItems.map(({ label, href }) => {
+              const id = href.split("#")[1];
+              return (
+                <li
+                  key={label}
+                  className="mb-4 flex items-center space-x-2 font-sans text-base font-medium cursor-pointer hover:text-blue-400 transition-colors">
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleScroll(id);
+                      setIsMenuOpen(false); // Fecha o menu após clicar
+                    }}>
+                    {label}
+                  </a>
+                </li>
+              );
+            })}
             <div className="mt-4 flex space-x-4">
               <a href="#" aria-label="GitHub">
                 <FaGithub

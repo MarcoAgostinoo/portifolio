@@ -50,7 +50,7 @@ export default function Gallery({ images = SAMPLE_IMAGES }: { images?: ImageItem
   }, [selected]);
 
   return (
-    <section className="bg-white text-gray-900 py-16 font-inter">
+    <section id="portfolio" className="bg-white text-gray-900 py-16 font-inter">
       <div className="max-w-5xl mx-auto px-6 mb-10 text-center">
         <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
           Meu <span className="text-green-500">Portfólio</span>

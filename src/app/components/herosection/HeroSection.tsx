@@ -1,12 +1,10 @@
 import Image from "next/image";
-import { TabsHero } from "../tabs/TabsHero";
-
 export default function HeroSection({
-  name = "Marco A.D.A Melo",
-  subtitle = "I Am Passionate Dev",
-  description = "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores.",
-  imageSrc = "/img1.jpeg",
-  cvLink = "/cv.pdf",
+  name = "Marco A. D. A. Melo",
+  subtitle = "Desenvolvedor Full-stack | Especialista em Soluções Web",
+  description = "Com 6 anos de experiência em gestão e atendimento, e paixão por desenvolvimento web, crio sites responsivos e interativos que fortalecem a presença online de empresas. Especializado em React, Node.js e tecnologias modernas, já entreguei +10 projetos com alta satisfação.",
+  imageSrc = "/image.jpg",
+  cvLink = "/curriculoMarcoMelo.pdf",
 }) {
   return (
     <section
@@ -18,7 +16,7 @@ export default function HeroSection({
       <div className="relative max-w-6xl mx-auto px-6 flex flex-col-reverse md:flex-row items-center py-12 md:py-20">
         {/* Texto */}
         <div className="w-full md:w-1/2 text-center md:text-left">
-          <p className="text-base md:text-lg text-gray-600 mb-2">Hello, I am</p>
+          <p className="text-base md:text-lg text-gray-600 mb-2">Olá, eu sou</p>
           <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-2">
             {name}
           </h1>
@@ -28,30 +26,36 @@ export default function HeroSection({
           <p className="text-sm md:text-base text-gray-600 mb-8 max-w-xl mx-auto md:mx-0">
             {description}
           </p>
-          <a
-            href={cvLink}
-            download
-            className="inline-block bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg shadow-md transition">
-            Download CV
-          </a>
+          <div className="flex flex-col md:flex-row gap-4">
+            <a
+              href={cvLink}
+              download
+              className="inline-block bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg shadow-md transition">
+              Download CV
+            </a>
+            <a
+              href="https://www.kisite.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg shadow-md transition">
+              Visite KiSite.com.br
+            </a>
+          </div>
         </div>
 
         {/* Imagem */}
         <div className="w-full flex justify-center">
-          <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-[432px] lg:h-[432px] rounded-full overflow-hidden bg-green-500 p-1">
+          <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-[430px] lg:h-[430px] rounded-full overflow-hidden bg-green-500 p-1">
             <Image
               src={imageSrc}
               alt={name}
               fill
-              sizes="(max-width: 768px) 192px, (max-width: 1024px) 256px, 432px"
-              className="object-cover rounded-full"
+              sizes="(max-width: 768px) 192px, (max-width: 1024px) 256px, 832px"
+              className="object-fill"
             />
           </div>
         </div>
       </div>
-      <div className="w-full sm:w-auto -mt-14">
-            <TabsHero />
-          </div>
     </section>
   );
 }
