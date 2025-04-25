@@ -37,7 +37,7 @@ export default function NavBar() {
   ];
 
   // Função para rolagem suave
-  const handleScroll = useCallback((id) => {
+  const handleScroll = useCallback((id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
