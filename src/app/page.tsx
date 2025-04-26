@@ -55,7 +55,7 @@ export default function Home() {
           <HeroSection />
           <TimeLines />
           <Skills />
-          <div className="mb-10 bg-white">
+          <div className="bg-white">
             <div>
               <h2 className="text-2xl font-bold mb-4 text-center">Tecnologias que utilizo no dia a dia</h2>
             </div>

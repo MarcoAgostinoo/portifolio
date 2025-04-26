@@ -31,9 +31,13 @@ const SAMPLE_IMAGES: ImageItem[] = [
 export default function Gallery({ images = SAMPLE_IMAGES }: { images?: ImageItem[] }) {
   const [currentCat, setCurrentCat] = useState<string>('Todos');
   const [selected, setSelected] = useState<ImageItem | null>(null);
+  const [orientationMap, setOrientationMap] = useState<Record<string, 'horizontal' | 'vertical'>>({});
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const filtered = currentCat === 'Todos' ? images : images.filter(img => img.category === currentCat);
+  const filtered =
+    currentCat === 'Todos'
+      ? images
+      : images.filter((img) => img.category === currentCat);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -49,8 +53,18 @@ export default function Gallery({ images = SAMPLE_IMAGES }: { images?: ImageItem
     }
   }, [selected]);
 
+  const onImageLoad =
+    (src: string) =>
+    ({ naturalWidth, naturalHeight }: { naturalWidth: number; naturalHeight: number }) => {
+      setOrientationMap((prev) => ({
+        ...prev,
+        [src]: naturalWidth >= naturalHeight ? 'horizontal' : 'vertical',
+      }));
+    };
+
   return (
     <section id="portfolio" className="bg-white text-gray-900 py-16 font-inter">
+      {/* Título e categorias */}
       <div className="max-w-5xl mx-auto px-6 mb-10 text-center">
         <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
           Meu <span className="text-green-500">Portfólio</span>
@@ -74,6 +88,7 @@ export default function Gallery({ images = SAMPLE_IMAGES }: { images?: ImageItem
         ))}
       </div>
 
+      {/* Grid de imagens */}
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((img, idx) => (
           <motion.div
@@ -82,7 +97,9 @@ export default function Gallery({ images = SAMPLE_IMAGES }: { images?: ImageItem
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: idx * 0.1 }}
             onClick={() => setSelected(img)}
-            className="relative overflow-hidden rounded-xl cursor-pointer hover:scale-[1.03] hover:shadow-lg transition-all aspect-[3/4]"
+            className={`relative overflow-hidden rounded-xl cursor-pointer hover:scale-[1.03] hover:shadow-lg transition-all ${
+              orientationMap[img.src] === 'horizontal' ? 'aspect-video' : 'aspect-[3/4]'
+            }`}
           >
             <Image
               src={img.src}
@@ -90,11 +107,13 @@ export default function Gallery({ images = SAMPLE_IMAGES }: { images?: ImageItem
               fill
               className="object-cover"
               sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+              onLoadingComplete={onImageLoad(img.src)}
             />
           </motion.div>
         ))}
       </div>
 
+      {/* Modal com layout moderno */}
       <AnimatePresence>
         {selected && (
           <motion.div
@@ -108,45 +127,70 @@ export default function Gallery({ images = SAMPLE_IMAGES }: { images?: ImageItem
             tabIndex={-1}
             ref={modalRef}
           >
-            <button
-              onClick={() => setSelected(null)}
-              className="absolute top-6 right-6 text-white text-3xl"
-              aria-label="Fechar modal"
-            >
-              <FaTimes />
-            </button>
-            <div className="flex flex-col sm:flex-row w-11/12 max-w-5xl h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl">
-              <div className="relative flex-1">
-                <Image
-                  src={selected.src}
-                  alt={selected.alt}
-                  fill
-                  className="object-contain bg-black"
-                />
+            <div className="relative flex flex-col w-11/12 max-w-6xl h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl">
+              {/* Botão de fechar */}
+              <button
+                onClick={() => setSelected(null)}
+                className="absolute top-4 right-4 bg-black bg-opacity-50 text-white w-8 h-8 flex items-center justify-center rounded-full z-10"
+                aria-label="Fechar modal"
+              >
+                <FaTimes />
+              </button>
+
+              {/* Conteúdo principal: imagem + detalhes */}
+              <div className="flex flex-1 flex-col md:flex-row overflow-hidden">
+                <div className="relative flex-1 bg-black">
+                  <Image
+                    src={selected.src}
+                    alt={selected.alt}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div className="p-6 md:w-1/3 w-full bg-gray-50 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2 text-gray-800">{selected.title}</h3>
+                    <p className="text-sm text-gray-600 mb-4">{selected.subtitle}</p>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <a
+                      href={selected.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center justify-center transition"
+                    >
+                      <FaExternalLinkAlt className="mr-2" />
+                      Visitar Site
+                    </a>
+                    <button
+                      onClick={() => setSelected(null)}
+                      className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg flex items-center justify-center transition"
+                    >
+                      <FaTimesCircle className="mr-2" />
+                      Fechar
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="w-full sm:w-[320px] p-6 bg-gray-50 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold mb-2 text-gray-800">{selected.title}</h3>
-                  <p className="text-sm text-gray-600">{selected.subtitle}</p>
-                </div>
-                <div className="mt-6 flex flex-col gap-2">
-                  <a
-                    href={selected.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center justify-center transition"
+
+              {/* Painel de miniaturas */}
+              <div className="bg-gray-100 p-4 flex overflow-x-auto gap-4">
+                {filtered.map((img) => (
+                  <div
+                    key={img.src}
+                    onClick={() => setSelected(img)}
+                    className={`relative w-20 h-20 flex-shrink-0 rounded-md overflow-hidden cursor-pointer transition-opacity ${
+                      selected.src === img.src ? 'ring-2 ring-green-500 opacity-100' : 'opacity-70 hover:opacity-100'
+                    }`}
                   >
-                    <FaExternalLinkAlt className="mr-2" />
-                    Visitar Site
-                  </a>
-                  <button
-                    onClick={() => setSelected(null)}
-                    className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg flex items-center justify-center transition"
-                  >
-                    <FaTimesCircle className="mr-2" />
-                    Fechar
-                  </button>
-                </div>
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>

@@ -39,7 +39,7 @@ export default function Contact() {
             transition={{ duration: 1, delay: 0.2 }}
             className="bg-gray-50 p-6 rounded shadow-sm"
           >
-            <h3 className="text-xl font-bold mb-2">
+            <h3 className="text-xl text-gray-800 font-bold mb-2">
               Vamos conversar?
             </h3>
             <p className="text-gray-600 mb-6">
@@ -93,14 +93,14 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.6 }}
-            className="bg-gray-50 p-6 rounded shadow-sm"
+            className="bg-gray-50 text-black p-6 rounded shadow-sm"
           >
             <h3 className="text-xl font-bold mb-4">Diga algo</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid text-gray-400 grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
                 placeholder="Nome *"
-                className={`border border-gray-300 rounded p-2 w-full ${
+                className={`borde text-gray-400 border-gray-300 rounded p-2 w-full ${
                   nameFocused ? 'ring-2 ring-green-500' : ''
                 }`}
                 onFocus={() => setNameFocused(true)}
@@ -110,7 +110,7 @@ export default function Contact() {
               <input
                 type="email"
                 placeholder="Email *"
-                className={`border border-gray-300 rounded p-2 w-full ${
+                className={`border text-gray-400 border-gray-300 rounded p-2 w-full ${
                   emailFocused ? 'ring-2 ring-green-500' : ''
                 }`}
                 onFocus={() => setEmailFocused(true)}
