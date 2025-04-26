@@ -44,7 +44,7 @@ const SplideCarousel: React.FC<SplideCarouselProps> = ({ imageUrls }) => {
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center py-8">
+    <div className="w-full flex flex-col items-center justify-center py-8 bg-white">
       <div ref={splideRef} className="splide w-full">
         <div className="splide__track">
           <ul className="splide__list flex gap-4">
