@@ -4,7 +4,7 @@
 
 :root {
   /* cores claras */
-  --foreground: #000000;
+  --foreground: #FFFFFF;
   --background-start: #FFFFFF;
   --background-end: #FFFFFF;
 }
@@ -13,8 +13,8 @@
   :root {
     /* cores escuras */
     --foreground: #FFFFFF;
-    --background-start: #000000;
-    --background-end: #000000;
+    --background-start: #FFFFFF;
+    --background-end: #FFFFFF;
   }
 }
 

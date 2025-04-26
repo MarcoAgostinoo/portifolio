@@ -17,15 +17,15 @@ type ImageItem = {
 };
 
 const SAMPLE_IMAGES: ImageItem[] = [
-  { src: '/img1.jpeg', alt: 'Retrato', category: 'Marca', title: 'Retrato de Marca', subtitle: 'Descrição do retrato', link: 'https://exemplo.com/retrato' },
-  { src: '/img2.webp', alt: 'Vaso', category: 'Photoshop', title: 'Vaso Editado', subtitle: 'Edição no Photoshop', link: 'https://exemplo.com/vaso' },
-  { src: '/img3.webp', alt: 'App iOS', category: 'Produto', title: 'App iOS', subtitle: 'Design de aplicativo', link: 'https://exemplo.com/app' },
-  { src: '/img4.webp', alt: 'Caneta', category: 'Marca', title: 'Caneta Personalizada', subtitle: 'Item de branding', link: 'https://exemplo.com/caneta' },
-  { src: '/img5.webp', alt: 'Garrafa', category: 'Produto', title: 'Garrafa Moderna', subtitle: 'Produto minimalista', link: 'https://exemplo.com/garrafa' },
-  { src: '/img6.webp', alt: 'Bloco de notas', category: 'Photoshop', title: 'Bloco Editado', subtitle: 'Design criativo', link: 'https://exemplo.com/bloco' },
-  { src: '/img7.webp', alt: 'Raquete', category: 'Moda', title: 'Raquete Estilosa', subtitle: 'Acessório de moda', link: 'https://exemplo.com/raquete' },
-  { src: '/img8.webp', alt: 'Escova', category: 'Marca', title: 'Escova de Marca', subtitle: 'Produto de identidade', link: 'https://exemplo.com/escova' },
-  { src: '/img9.webp', alt: 'Bicicleta', category: 'Moda', title: 'Bicicleta Fashion', subtitle: 'Estilo e funcionalidade', link: 'https://exemplo.com/bicicleta' },
+  { src: '/imgGalery1.png', alt: 'Retrato', category: 'Marca', title: 'Retrato de Marca', subtitle: 'Descrição do retrato', link: 'https://exemplo.com/retrato' },
+  { src: '/imgGalery2.png', alt: 'Vaso', category: 'Photoshop', title: 'Vaso Editado', subtitle: 'Edição no Photoshop', link: 'https://exemplo.com/vaso' },
+  { src: '/imgGalery3.png', alt: 'App iOS', category: 'Produto', title: 'App iOS', subtitle: 'Design de aplicativo', link: 'https://exemplo.com/app' },
+  { src: '/imgGalery4.png', alt: 'Caneta', category: 'Marca', title: 'Caneta Personalizada', subtitle: 'Item de branding', link: 'https://exemplo.com/caneta' },
+  { src: '/imgGalery5.png', alt: 'Garrafa', category: 'Produto', title: 'Garrafa Moderna', subtitle: 'Produto minimalista', link: 'https://exemplo.com/garrafa' },
+  { src: '/imgGalery6.png', alt: 'Bloco de notas', category: 'Photoshop', title: 'Bloco Editado', subtitle: 'Design criativo', link: 'https://exemplo.com/bloco' },
+  { src: '/imgGalery7.png', alt: 'Raquete', category: 'Moda', title: 'Raquete Estilosa', subtitle: 'Acessório de moda', link: 'https://exemplo.com/raquete' },
+  { src: '/imgGalery8.png', alt: 'Escova', category: 'Marca', title: 'Escova de Marca', subtitle: 'Produto de identidade', link: 'https://exemplo.com/escova' },
+  { src: '/imgGalery9.png', alt: 'Bicicleta', category: 'Moda', title: 'Bicicleta Fashion', subtitle: 'Estilo e funcionalidade', link: 'https://exemplo.com/bicicleta' },
 ];
 
 export default function Gallery({ images = SAMPLE_IMAGES }: { images?: ImageItem[] }) {
